@@ -36,6 +36,8 @@ The CPU is constructed hierarchically from primitive logic gates into functional
 2. **Register File:**
    * Built from single-bit D-Flip-Flop storage cells with load-enable multiplexing.
    * Scaled into 3-bit registers and organized into a 5-register file (`R0`–`R4`) supporting independent two-channel reads (`RA`, `RB`) and synchronous write-back.
+  
+     ![5-Register Dual-Read Register File](assets/register_set.png)
 
 3. **Memory Subsystem (9×18 RAM):**
    * Constructed bottom-up: `1x1 RAM cell` $\rightarrow$ `1x18 RAM row` $\rightarrow$ `9x18 Dual-Port RAM`.
