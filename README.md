@@ -72,5 +72,4 @@ JMP_TO: ADD R1, 2       ; 01 00 001 010 00000000 -> Immediate addition: R1 = R1 
         JMP JMP_TO      ; 10 00 0010 0000000000 -> Unconditional loop
 ```
 ## 🛠️ Tools Used
-
-Simulator: Digital Logic Simulator
+* **Simulator:** [Digital Logic Simulator](https://github.com/hneemann/Digital)
