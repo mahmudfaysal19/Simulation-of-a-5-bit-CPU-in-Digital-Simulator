@@ -65,6 +65,42 @@ The processor utilizes an 18-bit fixed-length encoding split across three primar
 | **Field** | **Type** (`10`) | **Branch Op** | **Target Address** | **Unused** |
 | **Width** | 2 bits | 2 bits | 4 bits | 10 bits |
 
+
+
+
+
+```text
+1. Register Mode (Type = 00)
+ 17    16 15    14 13       11 10        8 7                         0
++--------+--------+-----------+-----------+---------------------------+
+|  Type  | ALU Op |    Ra     |    Rb     |          Unused           |
+|  (00)  | (2 b)  |   (3 b)   |   (3 b)   |           (8 b)           |
++--------+--------+-----------+-----------+---------------------------+
+
+2. Immediate Mode (Type = 01)
+ 17    16 15    14 13       11 10        8 7                         0
++--------+--------+-----------+-----------+---------------------------+
+|  Type  | ALU Op |    Ra     | Immediate |          Unused           |
+|  (01)  | (2 b)  |   (3 b)   |   (3 b)   |           (8 b)           |
++--------+--------+-----------+-----------+---------------------------+
+
+3. Branching Mode (Type = 10)
+ 17    16 15    14 13                   10 9                         0
++--------+--------+-----------------------+---------------------------+
+|  Type  | Branch |    Target Address     |          Unused           |
+|  (10)  | (2 b)  |         (4 b)         |          (10 b)           |
++--------+--------+-----------------------+---------------------------+
+```
+
+
+
+
+
+| Mode | `[17:16]` (2b) | `[15:14]` (2b) | `[13:11]` (3b) | `[10:8]` (3b) | `[7:0]` (8b) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Register** | `00` | ALU Op (`00`–`10`) | Reg A (`Ra`) | Reg B (`Rb`) | *Unused* |
+| **Immediate**| `01` | ALU Op (`00`–`10`) | Reg A (`Ra`) | Constant / Imm | *Unused* |
+| **Branch**   | `10` | Branch Op (`JMP`/`JL`)| Target Addr `[13:10]` (4b) | *Unused `[9:0]` (10b)* |
 ---
 
 ## 🧪 Verification & Sample Program
