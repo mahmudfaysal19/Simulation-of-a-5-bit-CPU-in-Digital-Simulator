@@ -48,15 +48,22 @@ The CPU is constructed hierarchically from primitive logic gates into functional
 The processor utilizes an 18-bit fixed-length encoding split across three primary operational modes:
 
 ### 1. Register Mode (`Type = 00`)
+| Bits | `[17:16]` | `[15:14]` | `[13:11]` | `[10:8]` | `[7:0]` |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Field** | **Type** (`00`) | **ALU Op** | **Ra** (Dest/Src1) | **Rb** (Src2) | **Unused** |
+| **Width** | 2 bits | 2 bits | 3 bits | 3 bits | 8 bits |
 
-Op Type (00) | ALU Op | Ra | [10:8] Rb | [7:0] Unused
 ### 2. Immediate Mode (`Type = 01`)
+| Bits | `[17:16]` | `[15:14]` | `[13:11]` | `[10:8]` | `[7:0]` |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Field** | **Type** (`01`) | **ALU Op** | **Ra** (Dest/Src1) | **Immediate** | **Unused** |
+| **Width** | 2 bits | 2 bits | 3 bits | 3 bits | 8 bits |
 
-Op Type (01) | ALU Op | Ra | [10:8] Imm Value | [7:0] Unused
 ### 3. Branching Mode (`Type = 10`)
-Supports unconditional jump (`JMP`) and conditional jump on less-than (`JL`):
-
-Op Type (10) | Branch Op | Target Address | [9:0] Unused
+| Bits | `[17:16]` | `[15:14]` | `[13:10]` | `[9:0]` |
+| :--- | :---: | :---: | :---: | :---: |
+| **Field** | **Type** (`10`) | **Branch Op** | **Target Address** | **Unused** |
+| **Width** | 2 bits | 2 bits | 4 bits | 10 bits |
 
 ---
 
