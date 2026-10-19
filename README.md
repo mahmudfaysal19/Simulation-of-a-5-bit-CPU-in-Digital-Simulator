@@ -31,7 +31,7 @@ The CPU is constructed hierarchically from primitive logic gates into functional
    * **3-Bit Rotate Left (ROL):** Multiplexer-based circular barrel-shifter.
    * **Top-Level ALU:** Selects between `ADD (00)`, `OR (01)`, and `ROL (10)` based on control signals.
      
-![3-Bit ALU Circuit](assets/alu_circuit.png)
+   ![3-Bit ALU Circuit](assets/alu_circuit.png)
 
 2. **Register File:**
    * Built from single-bit D-Flip-Flop storage cells with load-enable multiplexing.
