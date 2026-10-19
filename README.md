@@ -42,6 +42,8 @@ The CPU is constructed hierarchically from primitive logic gates into functional
 3. **Memory Subsystem (9×18 RAM):**
    * Constructed bottom-up: `1x1 RAM cell` $\rightarrow$ `1x18 RAM row` $\rightarrow$ `9x18 Dual-Port RAM`.
    * Enables simultaneous dual instruction/data reading alongside synchronized writes.
+  
+     ![9x18 Dual-Port Memory Circuit](assets/ram_circuit.png)
 
 4. **Program Sequencing & Control Unit:**
    * **4-bit PC & Incrementor:** Dedicated 4-bit adder advances the PC sequentially (`PC + 1`) or loads direct jump targets.
