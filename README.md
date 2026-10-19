@@ -5,6 +5,8 @@ A modular 3-bit microprocessor designed and simulated from gate-level logic up t
 [![Watch the Demo](https://img.shields.io/badge/YouTube-Video%20Demo-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=Z4pHt0uK5ME)
 
 ---
+### 🖥️ Complete Datapath & Top-Level Circuit
+![3-Bit CPU Top-Level Architecture](assets/cpu_top_level.png)
 
 ## 📌 Architectural Specifications
 
