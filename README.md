@@ -70,3 +70,7 @@ The CPU functionality was verified by assembling and stepping through a test pro
 START:  ROL R1, R1      ; 00 10 001 001 00000000 -> Rotate register R1 left
 JMP_TO: ADD R1, 2       ; 01 00 001 010 00000000 -> Immediate addition: R1 = R1 + 2
         JMP JMP_TO      ; 10 00 0010 0000000000 -> Unconditional loop
+```
+## 🛠️ Tools Used
+
+Simulator: Digital Logic Simulator
