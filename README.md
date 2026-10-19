@@ -65,7 +65,7 @@ Op Type (10) | Branch Op | Target Address | [9:0] Unused
 The CPU functionality was verified by assembling and stepping through a test program that exercises arithmetic, shifting, and conditional branching:
 
 ```assembly
-; Sample validation routine:
+Sample validation routine:
         JL START        ; 10 11 0001 0000000000 -> Branch if less condition
 START:  ROL R1, R1      ; 00 10 001 001 00000000 -> Rotate register R1 left
 JMP_TO: ADD R1, 2       ; 01 00 001 010 00000000 -> Immediate addition: R1 = R1 + 2
