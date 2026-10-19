@@ -48,4 +48,22 @@ The CPU is constructed hierarchically from primitive logic gates into functional
 The processor utilizes an 18-bit fixed-length encoding split across three primary operational modes:
 
 ### 1. Register Mode (`Type = 00`)
+Op Type (00) | ALU Op | Ra | [10:8] Rb | [7:0] Unused
+### 2. Immediate Mode (`Type = 01`)
+Op Type (01) | ALU Op | Ra | [10:8] Imm Value | [7:0] Unused
+### 3. Branching Mode (`Type = 10`)
+Supports unconditional jump (`JMP`) and conditional jump on less-than (`JL`):
+Op Type (10) | Branch Op | Target Address | [9:0] Unused
 
+---
+
+## 🧪 Verification & Sample Program
+
+The CPU functionality was verified by assembling and stepping through a test program that exercises arithmetic, shifting, and conditional branching:
+
+```assembly
+; Sample validation routine:
+        JL START        ; 10 11 0001 0000000000 -> Branch if less condition
+START:  ROL R1, R1      ; 00 10 001 001 00000000 -> Rotate register R1 left
+JMP_TO: ADD R1, 2       ; 01 00 001 010 00000000 -> Immediate addition: R1 = R1 + 2
+        JMP JMP_TO      ; 10 00 0010 0000000000 -> Unconditional loop
